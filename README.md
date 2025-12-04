@@ -1,4 +1,4 @@
-```markdown
+markdown
 # Object Detection System for Visually Impaired Persons — AI-Integrated Smart Glasses
 
 A lightweight, real-time object detection and audio-notification system designed for smart glasses to assist visually impaired users. This repository provides reference scripts and guidance to run object detection on a camera feed (webcam / camera module on glasses / edge device), announce detected objects with TTS (text-to-speech), and prepare models for edge deployment.
@@ -74,23 +74,23 @@ TTS libraries: pyttsx3 (offline), gTTS (online), or platform-specific TTS.
 
 1. Clone the repository:
 
-```bash
+bash
 git clone https://github.com/mamatakhatke/Object-Detection-System-for-Visually-Impaired-Persons-Using-AI-Integrated-Smart-Glasses.git
 cd Object-Detection-System-for-Visually-Impaired-Persons-Using-AI-Integrated-Smart-Glasses
-```
+
 
 2. (Optional) Create and activate a virtual environment:
 
-```bash
+bash
 python3 -m venv venv
 source venv/bin/activate
-```
+
 
 3. Install dependencies:
 
-```bash
+bash
 pip install -r requirements.txt
-```
+
 
 4. Add model weights:
 
@@ -98,9 +98,9 @@ pip install -r requirements.txt
 
 5. Run inference (webcam):
 
-```bash
+bash
 python src/inference.py --model models/yolov5s.pt --source 0 --tts --conf 0.35
-```
+
 
 Parameters:
 - `--model` Path to model weights (.pt / .onnx / .tflite)
@@ -114,21 +114,21 @@ Parameters:
 
 Run inference on a video file, no speech:
 
-```bash
+bash
 python src/inference.py --model models/model.onnx --source demo/video.mp4 --no-tts
-```
+
 
 Run using CPU only:
 
-```bash
+bash
 python src/inference.py --model models/yolov5s.pt --source 0 --device cpu
-```
+
 
 Export a PyTorch model to ONNX (YOLOv5 example):
 
-```bash
+bash
 python export.py --weights models/yolov5s.pt --img 640 --include onnx
-```
+
 
 ---
 
@@ -136,7 +136,7 @@ python export.py --weights models/yolov5s.pt --img 640 --include onnx
 
 Basic single-frame detection (example):
 
-```python
+python
 from src.detector import Detector
 from src.tts import TTS
 import cv2
@@ -154,15 +154,15 @@ while True:
     for d in detections:
         tts.speak(f"{d['label']} {d['relative_pos']} {int(d['conf']*100)} percent")
     # optional: draw boxes / show frame
-```
+
 
 TTS helper (example using pyttsx3):
 
-```python
+python
 import pyttsx3
 
 class TTS:
-    def __init__(self, voice=None, rate=150):
+    def _init_(self, voice=None, rate=150):
         self.engine = pyttsx3.init()
         if voice:
             voices = self.engine.getProperty('voices')
@@ -172,7 +172,7 @@ class TTS:
     def speak(self, text):
         self.engine.say(text)
         self.engine.runAndWait()
-```
+
 
 ---
 
@@ -181,12 +181,12 @@ class TTS:
 - Prepare dataset in YOLO or COCO format.
 - For YOLOv5 training (example):
 
-```bash
+bash
 git clone https://github.com/ultralytics/yolov5.git
 cd yolov5
 pip install -r requirements.txt
 python train.py --img 640 --batch 16 --epochs 50 --data data/custom.yaml --weights yolov5s.pt
-```
+
 
 - Fine-tune on domain-specific classes to reduce false positives and improve accuracy.
 
@@ -200,9 +200,9 @@ python train.py --img 640 --batch 16 --epochs 50 --data data/custom.yaml --weigh
 
 Example ONNX export (YOLOv5):
 
-```bash
+bash
 python export.py --weights models/yolov5s.pt --img 640 --include onnx
-```
+
 
 For Jetson, create a TensorRT engine via trtexec or a conversion script.
 
@@ -267,3 +267,5 @@ Choose a license for your project (e.g., MIT). Add a LICENSE file to the repo ro
 - PyTorch, ONNX, TensorRT
 - TTS libraries: pyttsx3, gTTS
 - OpenCV for camera and image processing
+
+---
