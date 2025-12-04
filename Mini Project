@@ -1,0 +1,92 @@
+void testCameraModule() {
+
+// Test case: Camera initialization
+
+TEST_ASSERT_EQUAL(ESP_OK, initCamera());
+
+// Test case: Image capture
+
+camera_fb_t* fb captureImage();
+
+TEST_ASSERT_NOT_NULL(fb);
+
+TEST_ASSERT_GREATER_THAN(0, fb->len);
+
+}
+
+void test WiFiConnection() {
+
+// Test case: WiFi connectivity
+
+TEST_ASSERT_NOT_EQUAL("", WiFi.localIP().toString());
+
+TEST_ASSERT_EQUAL(WL_CONNECTED, WiFi.status());
+
+Flutter Application Testing
+
+Code
+
+void main() {
+
+test Widgets('Voice command recognition test', (tester) async {
+
+await tester.pump Widget(MyApp());
+
+// Test case: Start listening button
+
+expect(find.text('Start Listening'), findsOne Widget);
+
+// Test case: Voice command processing
+
+final command = 'describe';
+
+expect(await process VoiceCommand(command), completes);
+
+});
+}
+void testCameraModule() {
+
+// Test case: Camera initialization
+
+TEST_ASSERT_EQUAL(ESP_OK, initCamera());
+
+// Test case: Image capture
+
+camera_fb_t* fb captureImage();
+
+TEST_ASSERT_NOT_NULL(fb);
+
+TEST_ASSERT_GREATER_THAN(0, fb->len);
+
+}
+
+void test WiFiConnection() {
+
+// Test case: WiFi connectivity
+
+TEST_ASSERT_NOT_EQUAL("", WiFi.localIP().toString());
+
+TEST_ASSERT_EQUAL(WL_CONNECTED, WiFi.status());
+
+Flutter Application Testing
+
+Code
+
+void main() {
+
+test Widgets('Voice command recognition test', (tester) async {
+
+await tester.pump Widget(MyApp());
+
+// Test case: Start listening button
+
+expect(find.text('Start Listening'), findsOne Widget);
+
+// Test case: Voice command processing
+
+final command = 'describe';
+
+expect(await process VoiceCommand(command), completes);
+
+});
+}
